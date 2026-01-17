@@ -2,6 +2,7 @@ import random
 import os
 
 from art import logo1, logo2
+from game_data import instagram_data
 
 
 def clear_console():

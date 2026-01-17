@@ -1,5 +1,4 @@
 from art import logo1
-from game_data import instagram_data
 from game_operation import clear_console, get_random_data, display_data
 
 
