@@ -1,6 +1,7 @@
 import random
 
 from game_data import instagram_data
+from art import logo1, logo2
 
 
 def get_random_data():
@@ -9,9 +10,9 @@ def get_random_data():
     return {"name": data["name"], "description": data["description"], "country": data["country"], "follower_count": data["follower_count"]}
 
 def display_data(first, second):
-    print("Higher or lower")
+    print(logo1)
     print(f"Compare A: {first.get("name")}, a {first.get("description")}, from {first.get("country")}")
-    print("Vs.")
+    print(logo2)
     print(f"Against B: {second.get("name")}, a {second.get("description")}, from {second.get("country")}")
 
 def play():
@@ -23,11 +24,10 @@ def main():
     f_follower_count = first.get("follower_count")
     s_follower_count = second.get("follower_count")
     score = 0
-    is_winning = True
 
     display_data(first=first, second=second)
 
-    while is_winning:
+    while True:
 
         answer = input("Who has more followers? Type 'A' or 'B': ").upper()
 
@@ -38,8 +38,7 @@ def main():
             continue
 
         if answer != result:
-            print("You bald head demon lookin' ass, you have lost...")
-            is_winning = False
+            print(f"Sorry, that's wrong. Final score: {score}")
             break
             
 
