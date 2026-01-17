@@ -1,21 +1,23 @@
 from art import logo1
-from game_operation import clear_console, get_random_data, display_data
+from game_operation import get_follower_count, get_random_data, clear_console, display_data
 
 
 def main():
     first = get_random_data()
     second = get_random_data()
-    f_follower_count = first.get("follower_count")
-    s_follower_count = second.get("follower_count")
+
     score = 0
 
     display_data(first=first, second=second)
 
     while True:
 
-        answer = input("Who has more followers? Type 'A' or 'B': ").upper()
+        answer = input("Who has more followers? Type 'A' or 'B': ").upper().strip()
+
+        f_follower_count, s_follower_count = get_follower_count(first=first, second=second)
 
         result = "A" if f_follower_count > s_follower_count else "B"
+        print(result)
 
         if answer not in ["A", "B"]:
             print("Can you read? look again. (Choose A or B)")
@@ -26,9 +28,7 @@ def main():
             print(logo1)
             print(f"Sorry, that's wrong. Final score: {score}")
             break
-            
 
-        print("You got it right :> +1")
         score += 1
 
         if result != "A":
@@ -37,7 +37,7 @@ def main():
         second = get_random_data()
         
         clear_console()
-        display_data(first=first, second=second)
+        display_data(first=first, second=second, score=score)
         
     
 
