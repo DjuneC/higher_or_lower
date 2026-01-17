@@ -1,8 +1,11 @@
 import random
+import os
 
 from game_data import instagram_data
 from art import logo1, logo2
 
+def clear_console():
+    os.system("cls" if os.name == "nt" else "clear")
 
 def get_random_data():
     data = random.choice(instagram_data)
@@ -38,6 +41,8 @@ def main():
             continue
 
         if answer != result:
+            clear_console()
+            print(logo1)
             print(f"Sorry, that's wrong. Final score: {score}")
             break
             
@@ -50,6 +55,7 @@ def main():
 
         second = get_random_data()
         
+        clear_console()
         display_data(first=first, second=second)
         
     
