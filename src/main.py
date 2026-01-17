@@ -1,11 +1,10 @@
-message1 = "Test1"
-message2 = "Test2"
+from game_data import instagram_data
 
 
-print("Higher or lower")
-print(f"Compare A: {message1}")
+def get_random_data():
+    pass
 
-print("Vs.")
-print(f"Against B: {message2}")
+def main():
+    pass
 
 answer = input("Who has more followers? Type 'A' or 'B': ")
