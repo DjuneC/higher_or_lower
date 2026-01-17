@@ -8,7 +8,13 @@ def get_random_data():
 
     return {"name": data["name"], "description": data["description"], "country": data["country"], "follower_count": data["follower_count"]}
 
-def display_data(data_to_display):
+def display_data(first, second):
+    print("Higher or lower")
+    print(f"Compare A: {first.get("name")}, a {first.get("description")}, from {first.get("country")}")
+    print("Vs.")
+    print(f"Against B: {second.get("name")}, a {second.get("description")}, from {second.get("country")}")
+
+def play():
     pass
 
 def main():
@@ -16,18 +22,38 @@ def main():
     second = get_random_data()
     f_follower_count = first.get("follower_count")
     s_follower_count = second.get("follower_count")
+    score = 0
+    is_winning = True
 
-    print("Higher or lower")
+    display_data(first=first, second=second)
 
-    print(f"Compare A: {first.get("name")}, a {first.get("description")}, from {first.get("country")}")
-    print("Vs.")
-    print(f"Against B: {second.get("name")}, a {second.get("description")}, from {second.get("country")}")
+    while is_winning:
 
-    answer = input("Who has more followers? Type 'A' or 'B': ").lower()
+        answer = input("Who has more followers? Type 'A' or 'B': ").upper()
 
-    result = "A" if f_follower_count > s_follower_count else "B"
+        result = "A" if f_follower_count > s_follower_count else "B"
 
-    print(result)
+        if answer not in ["A", "B"]:
+            print("Can you read? look again. (Choose A or B)")
+            continue
+
+        if answer != result:
+            print("You bald head demon lookin' ass, you have lost...")
+            is_winning = False
+            break
+            
+
+        print("You got it right :> +1")
+        score += 1
+
+        if result != "A":
+            first = second
+
+        second = get_random_data()
+        
+        display_data(first=first, second=second)
+        
+    
 
     
 if __name__ == "__main__":
