@@ -14,14 +14,14 @@ def main():
 
         answer = input("Who has more followers? Type 'A' or 'B': ").upper().strip()
 
-        f_follower_count, s_follower_count = get_follower_count(first=first, second=second)
-
         result = "A" if f_follower_count > s_follower_count else "B"
         print(result)
 
         if answer not in ["A", "B"]:
             print("Can you read? look again. (Choose A or B)")
             continue
+
+        f_follower_count, s_follower_count = get_follower_count(first=first, second=second)
 
         if answer != result:
             clear_console()
